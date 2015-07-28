@@ -32,4 +32,24 @@ public class TreeNode {
 		return root;
 	}
 	
+	/*Check that whether given binary tree is binary search tree*/
+	
+	public static boolean isValidBST(TreeNode root) {
+
+		return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+	}
+
+	public static boolean isValidBST(TreeNode root, int left, int right) {
+
+		if (root == null)
+			return true;
+		if (root.value <= left || root.value > right)
+			return false;
+		
+		return isValidBST(root.left, left, root.value)
+				&& isValidBST(root.right, root.value, right);
+
+	}
+	
+	
 	}

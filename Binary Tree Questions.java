@@ -25,7 +25,7 @@ public class TreeNode {
 			return null;
 
 		int mid = (L + R) / 2;
-    TreeNode root = new TreeNode(ar[mid]); 
+                TreeNode root = new TreeNode(ar[mid]); 
 		root.left = arrayToTree(ar, L, mid - 1);
 		root.right = arrayToTree(ar, mid + 1, R);
 

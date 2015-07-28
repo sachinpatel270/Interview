@@ -1,3 +1,13 @@
+/* List of Questions are in order of:
+
+1-Convert a given array to a binary tree with minimum height
+2-Check that whether given binary tree is binary search tree
+3-
+
+*/
+
+
+
 public class TreeNode {
 
 	  int value;
@@ -12,7 +22,7 @@ public class TreeNode {
 	  		
 	  	}
 	
-	/* Question: Convert a given array to a binary tree with minimum height */
+	/* Question 1: Convert a given array to a binary tree with minimum height */
 	
 	public static TreeNode arrayToTree(int[] ar) {
 

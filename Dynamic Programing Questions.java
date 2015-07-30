@@ -35,7 +35,7 @@
 	 Length of the longest common subsequence of given two strings. 
 	 ex:inputs= "peacefully", "ecology" output:4 (ecly);
 	*/
-	public static int lengtOfLCA(String s1, String s2) {
+	public static int lengthOfLCA(String s1, String s2) {
 		int max = 0;
 		String subSeq = "";
 		int[][] M = new int[s1.length() + 1][s2.length() + 1];

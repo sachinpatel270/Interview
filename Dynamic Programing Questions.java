@@ -1,4 +1,8 @@
-    /* Qustion 1: 0-1 Knapsack */
+    /* Question 1: 0-1 Knapsack (knapsackNoRep)
+       Question 2: Knapsack with infinite item (knapsackWithRep)
+       Question 3: Length of Longest common subsequence (lengthOfLCA)
+       Question 4: Longest common subsequence (LCA)
+    */
     
     
     
@@ -26,3 +30,36 @@
 		}
 		return M[w.length][tw];
 	}
+
+        /*Question 3:
+	 Length of the longest common subsequence of given two strings. 
+	 ex:inputs= "peacefully", "ecology" output:4 (ecly);
+	*/
+	public static int lengtOfLCA(String s1, String s2) {
+		int max = 0;
+		String subSeq = "";
+		int[][] M = new int[s1.length() + 1][s2.length() + 1];
+		
+		// finding the length of LCA
+		for (int i = 1; i < s1.length() + 1; ++i) {
+			for (int j = 1; j < s2.length() + 1; ++j) {
+			
+				if (s1.charAt(i - 1) == s2.charAt(j - 1))
+				M[i][j] = M[i - 1][j - 1] + 1;
+				else
+				M[i][j] = Math.max(M[i - 1][j],M[i][j - 1]);
+				
+			max = (max < M[i][j])?M[i][j]:max;
+				
+			}
+		}
+	
+	//	System.out.print("Length of the LCA:" + max);
+	return max;	
+            
+	}
+
+
+
+
+

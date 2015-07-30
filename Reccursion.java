@@ -13,6 +13,8 @@
       Knapsack Problem with repetition allowed, i.e there is an infinite number of items
       w= weight array, v= value array, tw =  weight capacity of knapsack. Aim is to maximize the
       total value in Knapsack.
+      
+      See a better solution in Dynamic Programming question section
      */
 	
 	public static int KnapsackWithRep(int[] w, int[] v, int tw) {
@@ -34,7 +36,7 @@
 
 		for (int i = 0; i < ar.length; ++i) {
 			if (ar[i] < min)
-				min = ar[i];
+			min = ar[i];
 		}
 		return min;
 	}
@@ -44,7 +46,7 @@
 
 		for (int i = 0; i < ar.length; ++i) {
 			if (max < ar[i])
-				max = ar[i];
+			max = ar[i];
 		}
 		return max;
 	}

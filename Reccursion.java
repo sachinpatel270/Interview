@@ -3,19 +3,20 @@
     Question 1: Knapsack with infinite number of items.
     Question 2: Knapsack without repetion of the items.
     Question 3: Least common subsequence if a given two sequence
+    Question 4: Print all permutaion of a given string
     */
 
 
 
 
 
-    /*Question 1:
+      /*Question 1:
       Knapsack Problem with repetition allowed, i.e there is an infinite number of items
       w= weight array, v= value array, tw =  weight capacity of knapsack. Aim is to maximize the
       total value in Knapsack.
       
       See a better solution in Dynamic Programming question section
-     */
+      */
 	
 	public static int KnapsackWithRep(int[] w, int[] v, int tw) {
 		int[] knapArray = new int[w.length];
@@ -55,11 +56,11 @@
       Knapsack Problem with repetition, i.e there is only one item for each item.
       w= weight array, v= value array, tw =  weight capacity of knapsack. Aim is to maximize the
       total value in Knapsack.
-     */
+      */
      
       /*Question 3:
       Least Common subsequence of a given two sequence. ex: Inputs: s1 = "peacefully", s2 = "ecology". Output= "ecly"
-     */
+      */
      
      
      
@@ -79,5 +80,28 @@
 		}
 
 	}
+
+	/*Question 4;
+	Print the all permutation of the given string. input = abc , output = abc acb bac bca cab cba
+	*/
 	
+	public static void permutationPrinter(String str) {
+
+		permutationPrinter(str, "");
+	}
+
+	public static void permutationPrinter(String str, String perm) {
+		if (str.equals(""))
+			System.out.print(perm + " ");
+		else {
+			for (int i = 0; i < str.length(); ++i) {
+                //removing ith character from str and add it into perm string
+				String strNew = str.substring(0, i) + str.substring(i + 1);
+				String permNew = perm + str.charAt(i);
+				permutationPrinter(strNew, permNew);
+
+			}
+		}
+
+	}
 	

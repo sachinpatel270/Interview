@@ -1,7 +1,7 @@
     /* Question 1: 0-1 Knapsack (knapsackNoRep)
        Question 2: Knapsack with infinite item (knapsackWithRep)
        Question 3: Length of Longest common subsequence (lengthOfLCSubSeq)
-       Question 4: Longest common subsequence (LCSubString)
+       Question 4: Longest common substring (LCSubString)
     */
     
     
@@ -58,8 +58,42 @@
 	return max;	
             
 	}
+	
+	
+	
+        /* Question 4:
+        find the longest common substring if a given 2 strings.
+        ex: inputs: onemorecupof, coffeebeforeigo, output: ore (NOT oreo, it must be continuous)
+        */
 
+	public static String LCSubString(String s1, String s2) {
+		int max = 0; // for the length of output
+		int k = 0, l = 0; // for the coordinate of max,
+		String output = "";
+		int[][] M = new int[s1.length() + 1][s2.length() + 1];
 
+		for (int i = 1; i < s1.length() + 1; ++i) {
+			for (int j = 1; j < s2.length() + 1; ++j) {
+				if (s1.charAt(i - 1) == s2.charAt(j - 1))
+					M[i][j] = M[i - 1][j - 1] + 1;
+
+				if (max < M[i][j]) {
+					max = M[i][j];// keeping Max
+					k = i;// keeping the coordinate (k,l) when max is updated
+					l = j;
+				}
+			}
+		}
+		// forming the longest common substring
+		while (M[k][l] != 0) {
+			output = s1.charAt(k - 1) + output;
+			--k;
+			--l;
+		}
+		System.out.println("The length of LCSubstrings is: " + max
+				+ " and the substring is : " + output);
+		return output;
+	}
 
 
 

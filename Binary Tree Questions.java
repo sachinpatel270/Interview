@@ -1,8 +1,8 @@
 /* List of Questions are in order of:
 
-1-Convert a given array to a binary tree with minimum height
-2-Check that whether given binary tree is binary search tree
-3-
+Question 1: Convert a given array to a binary tree with minimum height
+Question 2: Check that whether given binary tree is binary search tree
+Question 3: Print all the path from root to lead node 
 
 */
 
@@ -22,7 +22,9 @@ public class TreeNode {
 	  		
 	  	}
 	
-	/* Question 1: Convert a given array to a binary tree with minimum height */
+	/* Question 1: 
+	Convert a given array to a binary tree with minimum height 
+	*/
 	
 	public static TreeNode arrayToTree(int[] ar) {
 
@@ -42,7 +44,9 @@ public class TreeNode {
 		return root;
 	}
 	
-	/*Check that whether given binary tree is binary search tree*/
+	/* Question 2: 
+	Check that whether given binary tree is binary search tree
+	*/
 	
 	public static boolean isValidBST(TreeNode root) {
 
@@ -61,5 +65,30 @@ public class TreeNode {
 
 	}
 	
+	/*Question 3:
+	 Print all the path from root to leaf (printRootToLeaf)
+	 */
 	
+	public static void printRootToLeaf(TreeNode root) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		printRootToLeaf(root, list);
 	}
+
+	public static void printRootToLeaf(TreeNode root, ArrayList<Integer> path) {
+
+		if (root == null)
+			return;
+		path.add(root.value);
+
+		// check whether it is a leaf node, if yes, print the path
+		if (root.right == null && root.left == null) {
+			System.out.println(path);
+			return;
+		}
+
+		printRootToLeaf(root.left, new ArrayList<Integer>(path));
+		printRootToLeaf(root.right, new ArrayList<Integer>(path));
+
+	}
+	
+}

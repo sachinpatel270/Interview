@@ -3,7 +3,7 @@
 Question 1: Convert a given array to a binary tree with minimum height
 Question 2: Check that whether given binary tree is binary search tree
 Question 3: Print all the path from root to lead node 
-Question 4: Find Least common Ancestor of a given two node. 
+Question 4: Find lowest common Ancestor of a given two node. 
 */
 
 
@@ -92,7 +92,7 @@ public class TreeNode {
 	}
 	
 	/* Question 4:
-	Find Least common Ancestor of a given two node. (LCA())
+	Find lowest common ancestor of a given two node. (LCA())
 	*/
 	
 	public static TreeNode LCA(TreeNode root, TreeNode n1, TreeNode n2) {

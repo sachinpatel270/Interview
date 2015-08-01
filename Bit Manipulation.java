@@ -9,11 +9,11 @@
     input: [1,4,2,3,5,4,3,1], output:5
     */
 
-    public static int findSigleton(int[] ar) {
-       
-         int mask = 0;
-      for(int i = 0; i < ar.length; ++i) {
-         mask ^= ar[i];
-      }
-    return mask; 
-    }
+	public static int findSingleton(int[] ar) {
+
+		int mask = 0;
+		for (int i = 0; i < ar.length; ++i) {
+			mask ^= ar[i];
+		}
+		return mask;
+	}

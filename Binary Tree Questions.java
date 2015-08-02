@@ -1,4 +1,4 @@
-/* List of Questions are in order of:
+/* List of Questions:
 
 Question 1: Convert a given array to a binary tree with minimum height
 Question 2: Check that whether given binary tree is binary search tree
@@ -6,6 +6,7 @@ Question 3: Print all the path from root to lead node
 Question 4: Find lowest common Ancestor of a given two node. 
 Question 5: Fint the nth number in Binary Search Tree(BST) when the elements of BST are sorted
 Question 6: Print the path which is add up to given target sum (path is starting from root)
+
 */
 
 

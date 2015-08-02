@@ -2,6 +2,7 @@
        Question 2: Knapsack with infinite item (knapsackWithRep)
        Question 3: Length of Longest common subsequence (lengthOfLCSubSeq)
        Question 4: Longest common substring (LCSubString)
+       Question 5: Coin change (#of ways to form a given sum with the given set of coins)
     */
     
     

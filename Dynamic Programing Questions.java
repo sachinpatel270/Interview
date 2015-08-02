@@ -95,6 +95,34 @@
 				+ " and the substring is : " + output);
 		return output;
 	}
+	
+	/*Question 4:
+	 Coin change problem, you have an infinite supply of coins, you are given a target sum, print the number of ways that you can form a sum with these coins
+	 ex input ([1,2,5], 4) output=3, since (1,1,1,1),(1,1,2),(2,2)
+	 */
+	public static int howManyWaysToChange(int[] coins, int sum) {
+		
+		int r = coins.length;
+		int c = sum+1;
+		int[][] M = new int[r][c];
+		
+		//Initializing the first column and first row of the matrix M
+		for (int i = 0; i < r; ++i) {
+			for(int j = 0; j < c; ++j){
+				if((j%coins[0] == 0)&&(i == 0 || j == 0))
+					M[i][j] = 1;
+			}
+		}
+		for (int i = 1; i < r; ++i) {
+			for(int j = 1; j < c; ++j){
+				if(coins[i]>j)
+					M[i][j] = M[i-1][j];
+				else
+					M[i][j] = M[i-1][j] + M[i][j-coins[i]];
+			}
+		}
+		return M[r-1][c-1];
+	}
 
 
 

@@ -4,6 +4,7 @@ Question 1: Convert a given array to a binary tree with minimum height
 Question 2: Check that whether given binary tree is binary search tree
 Question 3: Print all the path from root to lead node 
 Question 4: Find lowest common Ancestor of a given two node. 
+Question 5: Fint the nth number in Binary Search Tree(BST) when the elements of BST are sorted
 */
 
 
@@ -25,7 +26,6 @@ public class TreeNode {
 	/* Question 1: 
 	Convert a given array to a binary tree with minimum height 
 	*/
-	
 	public static TreeNode arrayToTree(int[] ar) {
 
 		return arrayToTree(ar, 0, ar.length - 1);
@@ -47,7 +47,6 @@ public class TreeNode {
 	/* Question 2: 
 	Check that whether given binary tree is binary search tree
 	*/
-	
 	public static boolean isValidBST(TreeNode root) {
 
 		return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
@@ -67,8 +66,7 @@ public class TreeNode {
 	
 	/*Question 3:
 	 Print all the path from root to leaf (printRootToLeaf)
-	 */
-	
+	*/
 	public static void printRootToLeaf(TreeNode root) {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		printRootToLeaf(root, list);
@@ -94,7 +92,6 @@ public class TreeNode {
 	/* Question 4:
 	Find lowest common ancestor of a given two node. (LCA())
 	*/
-	
 	public static TreeNode LCA(TreeNode root, TreeNode n1, TreeNode n2) {
 
 		if (root == null)
@@ -114,6 +111,27 @@ public class TreeNode {
 			return root;
 		
 		return null;
+
+	}
+	
+	/* Question 5: 
+	Return the nth number in Binary Search Tree(BST) when the elements of BST are sorted.
+	*/
+	static int count = 0; // We just set it to be zero once here
+
+	public static int nthLargestElementInBST(TreeNode root, int n) {
+
+		if (root == null)
+			return 0;
+		else {
+			int l = nthLargestElementInBST(root.left, n);
+			++count;
+			if (count == n)
+				return root.value;
+			int r = nthLargestElementInBST(root.right, n);
+
+			return l + r;
+		}
 
 	}
 	

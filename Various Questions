@@ -1,0 +1,21 @@
+	public static int numberof13tillN(int n) {
+		int count = 0;
+
+		for (int i = 0; i < n; ++i) {
+			count += numberof13(i);
+		}
+		return count;
+	}
+
+	public static int numberof13(int n) {
+
+		String sn = Integer.toString(n);
+		int count = 0;
+		for (int i = 0; i < sn.length() - 1; ++i) {
+			if (sn.charAt(i) == '1' && sn.charAt(i + 1) == '3') {
+				++count;
+				break;
+			}
+		}
+		return count;
+	}

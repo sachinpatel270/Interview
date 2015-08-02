@@ -5,6 +5,7 @@ Question 2: Check that whether given binary tree is binary search tree
 Question 3: Print all the path from root to lead node 
 Question 4: Find lowest common Ancestor of a given two node. 
 Question 5: Fint the nth number in Binary Search Tree(BST) when the elements of BST are sorted
+Question 6: Print the path which is add up to given target sum (path is starting from root)
 */
 
 
@@ -131,6 +132,34 @@ public class TreeNode {
 			int r = nthLargestElementInBST(root.right, n);
 
 			return l + r;
+		}
+
+	}
+
+	/* Question 6:
+	Print the path which is add up to given target sum (path is starting from root)
+	*/	
+	public static void printPathTargetSum(TreeNode root, int target) {
+
+	ArrayList<Integer> path = new ArrayList<Integer>();
+	int sum = 0; // sum is initialized here
+
+	printPathTargetSum(root, target, path, sum);
+
+	}
+
+	public static void printPathTargetSum(TreeNode root, int target,
+			ArrayList<Integer> path, int sum) {
+
+		if (root == null)
+			return;
+		else {
+			path.add(root.value);
+			sum += root.value;
+			if (sum == target)
+				System.out.print(path);
+			printPathTargetSum(root.left, target, new ArrayList(path), sum);
+			printPathTargetSum(root.right, target, new ArrayList(path), sum);
 		}
 
 	}

@@ -1,3 +1,17 @@
+	/*   L I S T   O F   Q U E S T I O N S  
+	Question 1: Print the number of 13 appearing in the numbers till a given number n
+	Question 2: 
+	
+	
+	
+	*/
+
+
+
+
+	/*Question 1:
+	Print the number of 13 appearing in the numbers till a given number n
+	*/
 	public static int numberof13tillN(int n) {
 		int count = 0;
 

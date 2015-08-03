@@ -6,7 +6,7 @@ Question 3: Print all the path from root to lead node
 Question 4: Find lowest common Ancestor of a given two node. 
 Question 5: Fint the nth number in Binary Search Tree(BST) when the elements of BST are sorted
 Question 6: Print the path which is add up to given target sum (path is starting from root)
-
+Question 7: Check whether there exist a root to leaf path such that sum of this path is equal to given number
 */
 
 
@@ -163,6 +163,27 @@ public class TreeNode {
 			printPathTargetSum(root.right, target, new ArrayList(path), sum);
 		}
 
+	}
+	
+	/*Question 7:
+	Check whether there exist a root to leaf path such that sum of this path is equal to given number
+	*/
+	
+	public static boolean hasPathSum(TreeNode root, int sum) {
+
+		if (root == null) {
+			return false;
+		}
+		if (root.value > sum)
+			return false;
+		
+		if (sum == root.value && (root.left == null && root.right == null))
+			return true;
+           
+		boolean l =  hasPathSum(root.left, sum - root.value);
+		boolean r = hasPathSum(root.right, sum - root.value);
+		
+		return l || r;
 	}
 	
 }

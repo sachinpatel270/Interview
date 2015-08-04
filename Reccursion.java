@@ -4,6 +4,7 @@
     Question 2: Knapsack without repetion of the items.
     Question 3: Least common subsequence if a given two sequence
     Question 4: Print all permutaion of a given string
+    Question 5: Print the mimimum number of coin add up to given sum (coins could be any integer)
     */
 
 
@@ -103,5 +104,23 @@
 			}
 		}
 
+	}
+	
+	/*Question 5;
+	Print the mimimum number of coin add up to given sum (coins could be any integer)
+	If the combination is possible, then code will give desired result, otherwise it gives Interger.MAX
+	ex1 input: ([3,5,9], 7) output:Integer.MAX. ex2: input([2,3,5,7], 16) output:3 since (7+7+2);
+	*/
+		public static int minCoinChange(int[] coins, int sum) {
+		int result = Integer.MAX_VALUE;
+		if (sum < 0)
+			return Integer.MAX_VALUE - 1;
+		if (sum == 0)
+			return 0;
+
+		for (int i = 0; i < coins.length; ++i) {
+			result = Math.min(result, minCoinChange(coins, sum - coins[i]));
+		}
+		return result + 1;
 	}
 	

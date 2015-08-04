@@ -4,7 +4,7 @@
     Question 2: Knapsack without repetion of the items.
     Question 3: Least common subsequence if a given two sequence
     Question 4: Print all permutaion of a given string
-    Question 5: Print the mimimum number of coin add up to given sum (coins could be any integer)
+    Question 5: Print the mimimum number of coin add up to given sum (coins array could be any integer!)
     */
 
 

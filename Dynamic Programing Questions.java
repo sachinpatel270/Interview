@@ -97,7 +97,8 @@
 	}
 	
 	/*Question 4:
-	 Coin change problem, you have an infinite supply of coins, you are given a target sum, print the number of ways that you can form a sum with these coins
+	 Coin change problem, you have an infinite supply of coins, you are given a target sum.
+	 Print the number of ways that you can form a sum with these coins
 	 ex input ([1,2,5], 4) output=3, since (1,1,1,1),(1,1,2),(2,2)
 	 */
 	public static int howManyWaysToChange(int[] coins, int sum) {

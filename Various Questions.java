@@ -1,7 +1,7 @@
 	/*   L I S T   O F   Q U E S T I O N S  
 	Question 1: Print the number of 13 appearing in the numbers till a given number n
 	Question 2: Check whether given string is palendrome or not (not case sensitive, "Pe  aC EcA e p " is palendrome)
-	
+	Question 3: Shortest subsequence of the array that add up to the given number
 	
 	
 	*/
@@ -59,3 +59,51 @@
 		}
 		return true;
 	}
+	
+	/* Question 3: 
+	Shortest subsequence of the array that add up to the given number(numbers are positive integers)
+	*/
+	public static int[] shortestSubSeq(int[] ar, int n) {
+
+		int head = 0; // beginning of sliding window
+		int end = 0; // end of the sliding window
+		int sum = 0;
+		int[] coordinate = new int[2];
+		int currentMin = Integer.MAX_VALUE;
+		int absMin = Integer.MAX_VALUE; // huge number
+
+		while (end < ar.length) {
+			
+			if (sum < n) {
+				sum += ar[end];
+				++end;
+			} else if (sum == n) {
+				currentMin = end - head;
+				if (absMin > currentMin) {
+					absMin = currentMin;
+					coordinate[0] = head;
+					coordinate[1] = end;
+				}
+				sum -= ar[head];
+				++head;
+			} else {
+				sum -= ar[head];
+				++head;
+			}
+		}
+
+		int[] output = new int[absMin];
+		System.arraycopy(ar, coordinate[0], output, 0, absMin);
+		return output;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

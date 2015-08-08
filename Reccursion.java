@@ -5,6 +5,7 @@
     Question 3: Least common subsequence if a given two sequence
     Question 4: Print all permutaion of a given string
     Question 5: Print the mimimum number of coin adding up to the given sum (coins array could be any integer!)
+    Question 6: Return the list of subsets of the given string. ex: abc->[abc, ab, ac, bc, a, b, c, ]
     */
 
 
@@ -123,4 +124,31 @@
 		}
 		return result + 1;
 	}
+	
+	/* Question 6:
+	Return the list of subsets of the given string. ex: abc->[abc, ab, ac, bc, a, b, c, ]
+	*/
+	public static ArrayList<String> subsetPrinter(String str) {
+		ArrayList<String> subset = new ArrayList<String>();
+		String basket = "";
+		return subsetPrinter(str, basket, subset);
+	}
+
+	public static ArrayList<String> subsetPrinter(String str, String basket,
+			ArrayList<String> subset) {
+
+		if (str.equals("")) {
+			subset.add(basket);
+		} else {
+			String newBasket = basket + str.charAt(0);
+			String newStr = str.substring(1);
+			// 0th character is included or not included
+			subsetPrinter(newStr, newBasket, subset);
+			subsetPrinter(newStr, basket, subset);
+		}
+
+		return subset;
+
+	}
+	
 	

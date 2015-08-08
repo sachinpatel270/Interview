@@ -2,6 +2,7 @@
 	Question 1: Print the number of 13 appearing in the numbers till a given number n
 	Question 2: Check whether given string is palendrome or not (not case sensitive, "Pe  aC EcA e p " is palendrome)
 	Question 3: Shortest subsequence of the array that add up to the given number
+	Question 4: Given two strings, check whether the are anagrams or not. 
 	
 	
 	*/
@@ -97,7 +98,25 @@
 		return output;
 	}
 	
-	
+	/*Question 4:
+	Given two strings, check whether the are anagrams or not.
+	*/
+	public static boolean isAnagram(String str1, String str2) {
+
+		if (str1.length() != str2.length())
+			return false;
+
+		int[] freq1 = new int[256];
+		int[] freq2 = new int[256];
+
+		for (int i = 0; i < str1.length(); ++i) {
+
+			++freq1[str1.charAt(i)];
+			++freq2[str2.charAt(i)];
+
+		}
+		return Arrays.equals(freq1, freq2);
+	}
 	
 	
 	

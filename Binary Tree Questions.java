@@ -7,6 +7,8 @@ Question 4: Find lowest common Ancestor of a given two node.
 Question 5: Fint the nth number in Binary Search Tree(BST) when the elements of BST are sorted
 Question 6: Print the path which is add up to given target sum (path is starting from root)
 Question 7: Check whether there exist a root to leaf path such that sum of this path is equal to given number
+Question 8: Given two binary trees, return true if they are structurally identical(both values and structure)
+
 */
 
 
@@ -184,6 +186,26 @@ public class TreeNode {
 		boolean r = hasPathSum(root.right, sum - root.value);
 		
 		return l || r;
+	}
+	
+	
+	/* Question 8:
+	Given two binary trees, return true if they are structurally identical.
+	i.e they are made of nodes with the same values arranged in the same way.
+	*/
+
+	public static boolean isIdentical(TreeNode t1, TreeNode t2) {
+
+		if ((t1 == null && t2 == null))
+			return true;
+		else if (t1 == null || t2 == null)
+			return false;
+		else if (t1.value != t2.value) {
+			return false;
+		} else
+
+			return isIdentical(t1.left, t2.left)
+					&& isIdentical(t1.right, t2.right);
 	}
 	
 }

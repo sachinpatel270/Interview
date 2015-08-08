@@ -14,7 +14,7 @@
 		HashSet<Integer> H = new HashSet<Integer>();
 
 		int i = 1, j = 0;
-		int n = 1000;
+		int n = (int) Math.cbrt(Integer.MAX_VALUE);;
 		while (i < n) {
 			j = i + 1;
 			while (j < n) {

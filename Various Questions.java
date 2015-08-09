@@ -3,6 +3,7 @@
 	Question 2: Check whether given string is palendrome or not (not case sensitive, "Pe  aC EcA e p " is palendrome)
 	Question 3: Shortest subsequence of the array that add up to the given number
 	Question 4: Given two strings, check whether the are anagrams or not. 
+	Question 5: Ingeneral write a program to output unbiased outcome from biased coin
 	
 	
 	*/
@@ -118,6 +119,34 @@
 		return Arrays.equals(freq1, freq2);
 	}
 	
+	/* Question 5: 
+	 * Probability of getting 1 is 0.25, and getting 0 is 0.75. Write program to return 0 or 1 equally likely
+	 * Ingeneral write a program to output unbiased outcome from biased coin
+	 */
+	public static int biasedCoinToUnbiased() {
+
+		int[][] M = { { 1, 2 }, { 3, 4 } };
+
+		int i = biasedCoin();
+		int j = biasedCoin();
+		if (M[i][j] == 2)
+			return 0;
+		if (M[i][j] == 3)
+			return 1;
+		else
+			return biasedCoinToUnbiased();
+
+	}
+
+	// biased coin for testing: 1 with probability .25, and 0 with probability .75
+	public static int biasedCoin() {
+
+		int[][] M = { { 1, 2 }, { 3, 4 } };
+		int i = (int) (2 * Math.random());
+		int j = (int) (2 * Math.random());
+
+		return (M[i][j] == 1) ? 1 : 0;
+	}
 	
 	
 	

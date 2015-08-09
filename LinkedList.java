@@ -28,7 +28,7 @@
 				temp1.poll();
 				temp2.poll();
 			}
-			return temp1.peek();
+			return (!temp1.equals(null))?temp1.peek():-1;;
 		} else if (L1.size() <= L2.size())
 			return intersectionsOfLLs(L2, L1);
 		else

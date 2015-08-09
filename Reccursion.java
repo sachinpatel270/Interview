@@ -6,6 +6,7 @@
     Question 4: Print all permutaion of a given string
     Question 5: Print the mimimum number of coin adding up to the given sum (coins array could be any integer!)
     Question 6: Return the list of subsets of the given string. ex: abc->[abc, ab, ac, bc, a, b, c, ]
+    Question 7: Find the lengt of longest palindromic subsequence
     */
 
 
@@ -112,7 +113,7 @@
 	If the combination is possible, then code will give desired result, otherwise it gives Interger.MAX
 	ex1 input: ([3,5,9], 7) output:Integer.MAX. ex2: input([2,3,5,7], 16) output:3 since (7+7+2);
 	*/
-		public static int minCoinChange(int[] coins, int sum) {
+	public static int minCoinChange(int[] coins, int sum) {
 		int result = Integer.MAX_VALUE;
 		if (sum < 0)
 			return Integer.MAX_VALUE - 1;
@@ -148,6 +149,26 @@
 		}
 
 		return subset;
+
+	}
+	
+	/* Question 7:
+        Length of the longest palindromic subsequence of the give string (not necessarily continuous subsequence)
+	*/
+	public static int LLongestPalindromicS(String str) {
+
+		if (str.length() == 0)
+			return 0;
+		else if (str.length() == 1) {
+			return 1;
+		} else if (str.length() > 1
+				&& str.charAt(0) == str.charAt(str.length() - 1))
+			return LLongestPalindromicS(str.substring(1, str.length() - 1)) + 2;
+		else {
+			int a = LLongestPalindromicS(str.substring(0, str.length() - 1));
+			int b = LLongestPalindromicS(str.substring(1, str.length()));
+			return Math.max(a, b);
+		}
 
 	}
 	

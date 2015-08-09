@@ -3,17 +3,17 @@
        Question 3: Length of Longest common subsequence (lengthOfLCSubSeq)
        Question 4: Longest common substring (LCSubString)
        Question 5: Coin change (#of ways to form a given sum with the given set of coins)
+       Question 6: Length of the Longest palindromic subsqeunce of a given string 
     */
     
     
     
-    /*Question 1: Knapsack problem without repetition
-    w= weight array, v= value array, tw = total weight capacity of knapsack. Aim is to maximize the
-    total value in Knapsack.
-    */
-	
-	  // w= weight array, v = value array, tw = total capacity of Knapsack
-	public static int knapsackNoRep(int[] w, int[] v, int tw) {
+      /*Question 1: 
+       Knapsack problem without repetition
+       w= weight array, v= value array, tw = total weight capacity of knapsack. Aim is to maximize the
+       total value in Knapsack.
+       */
+       public static int knapsackNoRep(int[] w, int[] v, int tw) {
 
 		int[][] M = new int[w.length + 1][tw + 1];
 
@@ -123,6 +123,32 @@
 			}
 		}
 		return M[r-1][c-1];
+	}
+	
+       	/* Question 6: 
+	 Find the length of longest palindromic subsequence.
+	*/
+	public static int LLpalindromicSSwithDP(String str) {
+
+		int strLen = str.length();
+		int[][] M = new int[strLen][strLen];
+
+		/* Initalization of M. M[i][j] is defined as LLPSS(str.substring(i,j+1) */
+		for (int i = 0; i < strLen; ++i) {
+			M[i][i] = 1;
+		}
+
+		// Filling the upper triangular part of M from bottom-right to top-right
+		for (int i = strLen - 2; i >= 0; --i) {
+			for (int j = i + 1; j < strLen; ++j) {
+				if (str.charAt(i) == str.charAt(j))
+					M[i][j] = M[i + 1][j - 1] + 2;
+				else
+					M[i][j] = Math.max(M[i + 1][j], M[i][j - 1]);
+			}
+		}
+
+		return M[0][strLen - 1];
 	}
 
 

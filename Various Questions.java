@@ -4,7 +4,8 @@
 	Question 3: Shortest subsequence of the array that add up to the given number
 	Question 4: Given two strings, check whether the are anagrams or not. 
 	Question 5: Ingeneral write a program to output unbiased outcome from biased coin
-	
+        Question 6: Convert the given string of number into a number. ex: in = "-123", out = -123
+        
 	
 	*/
 
@@ -146,6 +147,31 @@
 		int j = (int) (2 * Math.random());
 
 		return (M[i][j] == 1) ? 1 : 0;
+	}
+	
+	/*Question 6:
+	Convert the given string consisting of number into a number.
+	ex: input = "-1234", output = -1234.
+	 */
+
+	public static int stringToInteger(String str) {
+
+		int output = 0;
+		int sign = 1;
+		int index = 0;
+		int i = str.length() - 1;
+
+		if (str.charAt(0) == '-') {
+			sign = -1;
+			index = 1;
+		}
+		while (i >= index) {
+
+			output += (str.charAt(i) - 48) * Math.pow(10, str.length() - 1 - i);
+			--i;
+		}
+
+		return sign * output;
 	}
 	
 	

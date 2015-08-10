@@ -1,6 +1,6 @@
 	/* QUESTIONS:
 	Question 1: Return the intersection of two LinkedLists 
-	Question 2:
+	Question 2: Find that if there is a loop in the given linkedlist.
 	*/
 	
 	

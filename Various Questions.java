@@ -2,8 +2,8 @@
 	Question 1: Print the number of 13 appearing in the numbers till a given number n
 	Question 2: Check whether given string is palendrome or not (not case sensitive, "Pe  aC EcA e p " is palendrome)
 	Question 3: Shortest subsequence of the array that add up to the given number
-	Question 4: Given two strings, check whether the are anagrams or not. 
-	Question 5: Ingeneral write a program to output unbiased outcome from biased coin
+	Question 4: Given two strings, check whether they are anagrams or not. 
+	Question 5: Ingeneral write a program to output unbiased outcome from biased coin.
         Question 6: Convert the given string of number into a number. ex: in = "-123", out = -123
         
 	
@@ -170,7 +170,6 @@
 			output += (str.charAt(i) - 48) * Math.pow(10, str.length() - 1 - i);
 			--i;
 		}
-
 		return sign * output;
 	}
 	

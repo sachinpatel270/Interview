@@ -214,3 +214,27 @@ public class TreeNode {
   	/* Question 9:
   	Find the diamter of the tree.
   	*/
+  	public static int diameterOfTree(TreeNode root) {
+
+		if (root == null)
+			return 0;
+		int rootDiam = heightOfNode(root.left) + heightOfNode(root.right) + 1;
+		int rootLeftDiam = diameterOfTree(root.left);
+		int rootRightDiam = diameterOfTree(root.right);
+
+		return Math.max(rootDiam, Math.max(rootLeftDiam, rootRightDiam));
+	}
+	// Height of the given node
+	public static int heightOfNode(TreeNode root) {
+
+		if (root == null) {
+			return 0;
+		}
+		int a = heightOfNode(root.left);
+		int b = heightOfNode(root.right);
+		return Math.max(a, b) + 1;
+	}
+
+       /* Question 10:
+       
+       */

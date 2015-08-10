@@ -8,6 +8,7 @@ Question 5: Fint the nth number in Binary Search Tree(BST) when the elements of 
 Question 6: Print the path which is add up to given target sum (path is starting from root)
 Question 7: Check whether there exist a root to leaf path such that sum of this path is equal to given number
 Question 8: Given two binary trees, return true if they are structurally identical(both values and structure)
+Question 9: Find the diameter of the given tree. i.e. maximum distance between any two leaf nodes. 
 
 */
 
@@ -209,3 +210,7 @@ public class TreeNode {
 	}
 	
 }
+
+  	/* Question 9:
+  	Find the diamter of the tree.
+  	*/

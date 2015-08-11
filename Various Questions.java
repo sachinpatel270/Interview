@@ -6,6 +6,9 @@
 	Question 5: Ingeneral write a program to output unbiased outcome from biased coin.
         Question 6: Convert the given string of number into a number. ex: in = "-123", out = -123
         Question 7: Implemenation of  isSubstring method.
+        Question 8: Find the sum of any rectangle in a given  matrix.
+                    You will be given the coordinates of two opposite corners(Left-Top and right-bottom)
+        Question 9:             
         
 	
 	*/
@@ -198,6 +201,41 @@
 			}
 		}
 		return false;
+	}
+	/*Question 8: 
+	Find the sum of any rectangle in a given  matrix. You will be given the coordinates of two opposite corners(Left-Top and right-bottom) 	
+	*/
+	public static int rectangleSum(int[][] M, int[] LT, int[] RB) {
+		
+		int[][] Mnew = matrixToSumMatrix(M);
+		int output = 0;
+		
+		if (LT[0] > 0 && LT[1] > 0) {
+			output = Mnew[RB[0]][RB[1]] + Mnew[LT[0] - 1][LT[1] - 1]
+					- Mnew[RB[0]][LT[1] - 1] - Mnew[LT[0] - 1][RB[1]];
+		} else if (LT[0] == 0 && LT[1] != 0) {
+			output = Mnew[RB[0]][RB[1]] - Mnew[RB[0]][LT[1] - 1];
+		} else if (LT[1] == 0 && LT[0] != 0) {
+			output = Mnew[RB[0]][RB[1]] - Mnew[LT[0] - 1][RB[1]];
+		} else {
+			output = Mnew[RB[0]][RB[1]];
+		}
+		return output;
+	}
+	/Finding the sum matrix in place. New M[i][j] is the some of the rectangle determined by (0,0),(0,j),(i,0),(i,j). 
+	public static int[][] matrixToSumMatrix(int[][] M) {
+                //First column and first row are handled seperately
+		for (int i = 0; i < M.length-1; ++i) {
+			M[i+1][0] += M[i][0];
+			M[0][i+1] += M[0][i];
+		// Rest is handled iteratively	
+		for (int i = 1; i < M.length; ++i) {
+			for (int j = 1; j < M.length; ++j) {
+				M[i][j] = M[i][j] + M[i][j - 1] + M[i - 1][j] - M[i - 1][j - 1];
+			}
+		}
+
+		return M;
 	}
 	
 	

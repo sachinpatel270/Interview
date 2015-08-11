@@ -1,14 +1,15 @@
 /* List of Questions:
 
-Question 1: Convert a given array to a binary tree with minimum height
-Question 2: Check that whether given binary tree is binary search tree
-Question 3: Print all the path from root to lead node 
+Question 1: Convert a given array to a binary tree with minimum height.
+Question 2: Check that whether given binary tree is binary search tree.
+Question 3: Print all the path from root to lead node. 
 Question 4: Find lowest common Ancestor of a given two node. 
-Question 5: Fint the nth number in Binary Search Tree(BST) when the elements of BST are sorted
-Question 6: Print the path which is add up to given target sum (path is starting from root)
-Question 7: Check whether there exist a root to leaf path such that sum of this path is equal to given number
-Question 8: Given two binary trees, return true if they are structurally identical(both values and structure)
+Question 5: Fint the nth number in Binary Search Tree(BST) when the elements of BST are sorted.
+Question 6: Print the path which is add up to given target sum (path is starting from root).
+Question 7: Check whether there exist a root to leaf path such that sum of this path is equal to given number.
+Question 8: Given two binary trees, return true if they are structurally identical(both values and structure).
 Question 9: Find the diameter of the given tree. i.e. maximum distance between any two leaf nodes. 
+Question 10: Print all the sum from root to leaf node in binary tree.
 
 */
 
@@ -235,6 +236,23 @@ public class TreeNode {
 		return Math.max(a, b) + 1;
 	}
 
-       /* Question 10:
+        /* Question 10:
+        Print the all the sum from root to leaf node 
+        */
+	public static void sumRootToLeaf(TreeNode root, int sum) {
+
+		if (root == null) {
+			return;
+		}
+		if (root.left == null && root.right == null) {
+			System.out.print(root.value + sum + " ");
+		} else {
+			sum += root.value;
+			sumRootToLeaf(root.left, sum);
+			sumRootToLeaf(root.right, sum);
+		}
+
+	}
+       
        
        */

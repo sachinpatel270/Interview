@@ -1,6 +1,6 @@
 	/* 
 	Question 1: Taxicab Numbers. (x, such that x = a^3 + b^3 = c^3 + d^3, for different a,b,c,d)
-
+	Question 2: Swapping two integers.
 	
 	
 	*/
@@ -31,5 +31,17 @@
 			}
 			++i;
 		}
+	}
+	
+	/* Question 2:
+	Swap the given two integers.
+	*/
+	
+	public void swap(int a, int b) {
+		
+		a = a ^ b;
+		b = b ^ a;
+		a = a ^ b;
+		
 	}
 	

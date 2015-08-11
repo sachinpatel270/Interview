@@ -5,6 +5,7 @@
 	Question 4: Given two strings, check whether they are anagrams or not. 
 	Question 5: Ingeneral write a program to output unbiased outcome from biased coin.
         Question 6: Convert the given string of number into a number. ex: in = "-123", out = -123
+        Question 7: Implemenation of  isSubstring method.
         
 	
 	*/
@@ -173,6 +174,31 @@
 		return sign * output;
 	}
 	
+	/* Question 7
+	Implementation of isSubstring method.
+	*/
+	public static boolean isSubstring(String main, String str) {
+		int strLen = str.length();
+		int mainLen = main.length();
+		int start = 0;
+		int runner = 0;
+		int match = 0;
+		while (runner < mainLen) {
+
+			if (main.charAt(runner) == str.charAt(start)) {
+				++start;
+				++runner;
+				++match;
+				if (match == strLen) {
+					return true;
+				}
+			} else {
+				start = 0;// restart
+				++runner;
+			}
+		}
+		return false;
+	}
 	
 	
 	

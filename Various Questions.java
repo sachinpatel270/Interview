@@ -8,7 +8,7 @@
         Question 7: Implemenation of  isSubstring method.
         Question 8: Find the sum of any rectangle in a given  matrix.
                     You will be given the coordinates of two opposite corners(Left-Top and right-bottom)
-        Question 9:             
+        Question 9: Return subarray of given array with maximum sum.            
         
 	
 	*/
@@ -238,8 +238,37 @@
 		return M;
 	}
 	
-	
-	
+	/*Question 9: 
+	Return subarray of the gicen array with maximum sum.
+	ex1 [-1,-3,4,-2,2,-1,3]--> [4,-2,2,-1,3]. ex2 [-2,-1,-5,-3] ---> [-1].
+	*/
+	public static int[] subArrayWithMaxSum(int[] ar) {
+
+		int len = ar.length;
+		int cursum = ar[0];
+		int abssum = ar[0];
+		int beginnew = 0;
+		int beginprev = 0;
+		int end = 0;
+		for (int i = 0; i < len; ++i) {
+
+			if (ar[i] > cursum + ar[i]) {
+				cursum = ar[i];
+				beginprev = i;
+			} else {
+				cursum += ar[i];
+			}
+			if (abssum < cursum) {
+				abssum = cursum;
+				end = i;
+				beginnew = beginprev;
+			}
+
+		}
+		int[] output = new int[end - beginnew + 1];
+		System.arraycopy(ar, beginnew, output, 0, end - beginnew + 1);
+		return output;
+	}
 	
 	
 	

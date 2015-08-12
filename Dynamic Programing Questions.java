@@ -5,6 +5,9 @@
        Question 5: Coin change (#of ways to form a given sum with the given set of coins)
        Question 6: Length of the Longest palindromic subsqeunce of a given string 
        Question 7: Length of longest increasing subsequence.
+       Question 8: Check that whether you can fund a subset of the given nonnegative array such that,
+       total sum of that subset is equal to the	given number.
+       
     */
     
     
@@ -184,6 +187,33 @@
 			i = trace[i];
 		}
 		return memo[bestStop];
+	}
+	/* Question 8: 
+	Check that whether you can fund a subset of the given
+	nonnegative array such that, total sum of that subset is equal to the
+	given number
+	*/
+	public static boolean isThereSubsetToSum(int[] ar, int n) {
+		Arrays.sort(ar);
+		int arLen = ar.length;
+		boolean[][] B = new boolean[arLen][n + 1];
+
+		for (int i = 0; i < arLen; ++i) {
+
+			if (i < n + 1)
+				B[0][i] = (ar[0] == i) ? true : false;
+			B[i][0] = true;
+		}
+		for (int i = 1; i < arLen; ++i) {
+			for (int j = 1; j < n + 1; ++j) {
+				if (ar[i] > j)
+					B[i][j] = B[i - 1][j];
+				else
+					B[i][j] = B[i - 1][j - ar[i]] || B[i - 1][j];
+			}
+		}
+
+		return B[arLen - 1][n];
 	}
 
 

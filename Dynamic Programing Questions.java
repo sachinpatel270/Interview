@@ -4,6 +4,7 @@
        Question 4: Longest common substring (LCSubString)
        Question 5: Coin change (#of ways to form a given sum with the given set of coins)
        Question 6: Length of the Longest palindromic subsqeunce of a given string 
+       Question 7: Length of longest increasing subsequence.
     */
     
     
@@ -149,6 +150,40 @@
 		}
 
 		return M[0][strLen - 1];
+	}
+
+        /* Question 7:
+        Find the length longest increasing subsequence
+	*/
+	public static int LLincreasingSubseq(int[] ar) {
+
+		int[] memo = new int[ar.length];
+		int[] trace = new int[ar.length];
+		int bestStop = 0;
+
+		for (int i = 0; i < ar.length; ++i) {
+			memo[i] = 1;
+			trace[i] = -1;
+		}
+
+		for (int i = 1; i < ar.length; ++i) {
+			for (int j = 0; j < i; ++j) {
+				if (ar[j] < ar[i]) {
+					memo[i] = Math.max(memo[j] + 1, memo[i]);
+					if (memo[i] == memo[j] + 1)
+						trace[i] = j;
+				}
+			}
+		}
+		for (int i = 0; i < ar.length; ++i)
+			bestStop = (trace[bestStop] < trace[i]) ? i : bestStop;
+
+		int i = bestStop;
+		while (i >= 0) {
+			System.out.print(ar[i] + " ");
+			i = trace[i];
+		}
+		return memo[bestStop];
 	}
 
 

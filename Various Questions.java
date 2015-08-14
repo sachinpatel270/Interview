@@ -8,7 +8,8 @@
         Question 7: Implemenation of  isSubstring method.
         Question 8: Find the sum of any rectangle in a given  matrix.
                     You will be given the coordinates of two opposite corners(Left-Top and right-bottom)
-        Question 9: Return subarray of given array with maximum sum.            
+        Question 9: Return subarray of given array with maximum sum.   
+        Question 10: For given number n, find the smallest number whose digits consists of only 0 and 7 and divisible by n.
         
 	
 	*/
@@ -270,6 +271,28 @@
 		return output;
 	}
 	
-	
+	/* Question 10:
+	For given number n, find the smallest number whose digits consists of only 0 and 7 and divisible by n.
+        */
+       	public static int comb07(int n) {
+		int a = comb07(7, n);
+		return (a == Integer.MAX_VALUE) ? -1 : a;
+	}
+
+	public static int comb07(int number, int n) {
+
+		if (number > Integer.MAX_VALUE / 10) // to avoid overflow
+			return Integer.MAX_VALUE;
+
+		if (number % n == 0)
+			return number;
+
+		int a = comb07(number * 10, n);
+		int b = comb07(number * 10 + 7, n);
+
+		return Math.min(b, a);
+
+	}
+        
 	
 	

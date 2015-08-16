@@ -196,3 +196,51 @@
 
 	}
 	
+	/*
+	 *  Question How many possible path are there for the robot if it moves only down and right on the N by N maze.
+	 *  I.e How many different way robot starts at (0,0) and stops at (N-1,N-1).
+	*/
+     public static int NumberOfPossiblePath(int N){
+    	 
+    	 return numberOfPossiblePath(N, 0, 0);
+     }
+     
+       public static int numberOfPossiblePath(int N, int m, int n) {
+		
+		if (m > N - 1 || n > N - 1)
+			return 0; //stop reccursion out of bound :)
+		if (m == N - 1 && n == N - 1)
+			return 1; // hit the best dead-end
+		
+			int a = numberOfPossiblePath(N, m + 1, n);
+			int	b = numberOfPossiblePath(N, m, n + 1);
+		
+		return a + b ; // sum 
+	}
+    
+        /*
+	 *  Question How many possible path are there for the robot if it moves only down and right on the N by N maze.
+	 *  Robot starts at (0,0) and it can stop any where on the maze. To simplify for NxN mazes there can be (N-1) Down + (N-1) Right
+	 *  movement. Question ask number of total number of paths (of any length). It is basically the number of nodes int tree structure
+	 *  formed by reccursion. 
+	 */
+         public static int NumberOfPossiblePathRobotCanStopAnywhere(int N){
+    	 
+    	 return NumberOfPossiblePathRobotCanStopAnywhere(N, 0, 0);
+         }
+     
+        public static int NumberOfPossiblePathRobotCanStopAnywhere(int N, int m, int n) {
+		
+		if (m > N - 1 || n > N - 1)
+			return 0; //stop reccursion out of bound :)
+		if (m == N - 1 && n == N - 1)
+			return 1; // hit the best dead-end
+		
+			int a = NumberOfPossiblePathRobotCanStopAnywhere(N, m + 1, n);
+			int	b = NumberOfPossiblePathRobotCanStopAnywhere(N, m, n + 1);
+		
+		return a + b + 1 ; // sum 
+	}
+    
+ 
+	

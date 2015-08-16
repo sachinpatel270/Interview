@@ -10,7 +10,7 @@
                     You will be given the coordinates of two opposite corners(Left-Top and right-bottom)
         Question 9: Return subarray of given array with maximum sum.   
         Question 10: For given number n, find the smallest number whose digits consists of only 0 and 7 and divisible by n.
-        
+        Question 11: Random shuffle of arrays.
 	
 	*/
 
@@ -294,5 +294,31 @@
 
 	}
         
+	/* Question 11: 
+	Random shuffle of arrays
+	*/
 	
+		public static void shuffle(int[] ar) {
+
+		int len = ar.length;
+
+		for (int i = 0; i < len - 1; ++i) {
+			int j = randomIndexGen(i + 1, len - 1);
+			swap(ar, i, j);
+		}
+	}
+
+	public static void swap(int[] ar, int n, int m) {
+
+		ar[n] = ar[n] ^ ar[m];
+		ar[m] = ar[m] ^ ar[n];
+		ar[n] = ar[n] ^ ar[m];
+	}
+
+	public static int randomIndexGen(int begin, int end) {
+
+		int rnumber = (int) ((end - begin + 1) * Math.random());
+
+		return rnumber + begin;
+	}
 	

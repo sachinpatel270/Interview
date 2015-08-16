@@ -11,6 +11,7 @@
         Question 9: Return subarray of given array with maximum sum.   
         Question 10: For given number n, find the smallest number whose digits consists of only 0 and 7 and divisible by n.
         Question 11: Random shuffle of arrays.
+        Question 12: Number of path ina Maze(from top left to right bottom, moves are only to the right and to the down)
 	
 	*/
 
@@ -320,5 +321,27 @@
 		int rnumber = (int) ((end - begin + 1) * Math.random());
 
 		return rnumber + begin;
+	}
+	
+	/*Question 12
+	 How many possible path are there for the robot if it moves only down and right on the N by N maze.
+	 I.e How many different way robot starts at (0,0) and stops at (N-1,N-1).
+	*/
+     public static int NumberOfPossiblePath(int N){
+    	 
+    	 return numberOfPossiblePath(N, 0, 0);
+     }
+     
+    public static int numberOfPossiblePath(int N, int m, int n) {
+		
+		if (m > N - 1 || n > N - 1)
+			return 0; //stop reccursion out of bound :)
+		if (m == N - 1 && n == N - 1)
+			return 1; // hit the best dead-end
+		
+			int a = numberOfPossiblePath(N, m + 1, n);
+			int	b = numberOfPossiblePath(N, m, n + 1);
+		
+		return a + b ; // sum 
 	}
 	

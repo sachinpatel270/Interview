@@ -3,11 +3,9 @@ Basic interview questions classified according to data structure of their soluti
 
 Problems are chosen from:
 
--CareerCup (website)
+-careercup.com 
 
--Stack Overflow (website)
-
--TopCoder (website)
+-topcoder.com (website)
 
 -algorithms.tutorialhorizon.com
 

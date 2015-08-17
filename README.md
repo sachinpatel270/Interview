@@ -1,4 +1,4 @@
-# Interview
+# Interview Questions
 Basic interview questions classified according to data structure of their solutions.
 
 Problems are chosen from:

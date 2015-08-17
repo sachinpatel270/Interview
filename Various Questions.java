@@ -345,3 +345,22 @@
 		return a + b ; // sum 
 	}
 	
+        /* Question 13: 
+        Print the maximum of the sliding windows at each instance for a given array and the length of the windows
+        */
+        
+        //Brute force O(nk):
+        public static void maxSlidingWindow1(int[] ar, int k) {
+		int n = ar.length;
+		int max = 0;
+		for (int i = 0; i < n - k + 1; ++i) {
+			for (int j = 0; j < k; ++j) {
+				if (max < ar[i + j])
+					max = ar[i + j];
+
+			}
+			System.out.print(max);
+			max = 0;
+		}
+
+	}

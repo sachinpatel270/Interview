@@ -1,6 +1,8 @@
 	/* QUESTIONS:
 	Question 1: Return the intersection of two LinkedLists 
 	Question 2: Find that if there is a loop in the given linkedlist.
+	Question 3: Reverse the Singly Linked List
+	Question 4: Reverse the Doubly Linked List
 	*/
 	
 	

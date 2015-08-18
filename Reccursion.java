@@ -7,7 +7,8 @@
     Question 5: Print the mimimum number of coin adding up to the given sum (coins array could be any integer!)
     Question 6: Return the list of subsets of the given string. ex: abc->[abc, ab, ac, bc, a, b, c, ]
     Question 7: Find the lengt of longest palindromic subsequence
-    Question 8: For given number n, find the smallest number whose digits consists of only 0 and 7 and divisible by n.
+    Question 8: For given number n, find the smallest number whose digits consists of only 0 or 7 and divisible by n.
+    Question 9: For given number n, find the smallest number whose digits consists of only 1 or 2 or 7 and divisible by n.
     */
 
 
@@ -195,6 +196,29 @@
 		return Math.min(b, a);
 
 	}
+	
+	Question 9: For given number n, find the smallest number whose digits consists of only 1 or 2 or 7 and divisible by n.
+	
+	public static int comb123(int n) {
+		int a = comb123(0, n);
+		return (a == Integer.MAX_VALUE) ? -1 : a;
+	}
+
+	public static int comb123(int inital, int n) {
+
+		if (inital > Integer.MAX_VALUE / 10)
+			return Integer.MAX_VALUE;
+
+		if (inital % n == 0 && inital > 0)
+			return inital;
+
+		int a = comb123(inital * 10 + 1, n);
+		int b = comb123(inital * 10 + 2, n);
+		int c = comb123(inital * 10 + 3, n);
+
+		return Math.min(a, Math.min(c, b));
+	}
+	
 	
 	/*
 	 *  Question How many possible path are there for the robot if it moves only down and right on the N by N maze.

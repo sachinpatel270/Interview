@@ -37,3 +37,28 @@
 			return -1;
 
 	}
+        /* Question 3:
+        Reverse the Singly Linked List
+        */
+       	public static void reverseSLL() {
+
+		Node temp0 = null;
+		Node temp1 = head;
+		Node temp2 = head.next;
+
+		while (temp2 != null) {
+			// reverse the pointers
+			Node temp = temp2.next;
+			temp2.next = temp1;
+			temp1.next = temp0;
+
+			// shift the  position of pointers
+			temp0 = temp1;
+			temp1 = temp2;
+			temp2 = temp;
+
+		}
+
+		head = temp1;
+
+	}

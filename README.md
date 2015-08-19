@@ -5,7 +5,7 @@ Problems are chosen from:
 
 -careercup.com 
 
--topcoder.com (website)
+-topcoder.com
 
 -algorithms.tutorialhorizon.com
 

@@ -9,6 +9,13 @@
     Question 7: Find the lengt of longest palindromic subsequence
     Question 8: For given number n, find the smallest number whose digits consists of only 0 or 7 and divisible by n.
     Question 9: For given number n, find the smallest number whose digits consists of only 1 or 2 or 7 and divisible by n.
+    Question 10: How many possible path are there for the robot if it moves only down and right on the N by N maze.
+	         I.e How many different way robot starts at (0,0) and stops at (N-1,N-1).
+    Question 11: How many possible path are there for the robot if it moves only down and right on the N by N maze.
+	         Robot starts at (0,0) and it can stop any where on the maze. To simplify for NxN mazes there can be (N-1) Down + (N-1) Right
+	         movement. Question ask number of total number of paths (of any length). It is basically the number of nodes int tree structure
+	         formed by reccursion
+	         
     */
 
 
@@ -221,7 +228,8 @@
 	
 	
 	/*
-	 *  Question How many possible path are there for the robot if it moves only down and right on the N by N maze.
+	 *  Question 10:
+	 How many possible path are there for the robot if it moves only down and right on the N by N maze.
 	 *  I.e How many different way robot starts at (0,0) and stops at (N-1,N-1).
 	*/
      public static int NumberOfPossiblePath(int N){

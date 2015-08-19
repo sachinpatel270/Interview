@@ -1,16 +1,17 @@
 
-/* 
+	/*  QUESTION LIST
 
-Question 1: Celebrity problem : There are n number of people in party and only one celebrity.
+	Question 1: Celebrity problem : There are n number of people in party and only one celebrity.
+	Question 2:
 
-*/
-
-
-
+	*/
 
 
 
-/* Question 1:
+
+
+
+	/* Question 1:
 	Celebrity problem : There are n number of people in party and only one celebrity.
 	If celebrity is the person, who knows no one but everyone knows him, find who is the celebrity? 
 	Given: a function is provided which tells whether ‘a’ knows ‘b’ or not? doesAknowB(A,B).

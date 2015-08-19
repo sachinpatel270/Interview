@@ -29,7 +29,9 @@
 		}
 		if (len == 1)
 			return "There you go! Celebrity is " + guestlist[0];
+		
 		Stack<String> S = new Stack<String>();
+		
 		for (int i = 0; i < len; ++i) {
 			S.push(guestlist[i]);
 		}

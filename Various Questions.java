@@ -14,6 +14,7 @@
         Question 12: Number of path ina Maze(from top left to right bottom, moves are only to the right and to the down)
 	Question 13: Maximum of a sliding windows of size k over the array of length n>k.
 	Question 14: Check that whether pharanthesis are properly opened and closed.
+	Question 15: Find the nonrepeated element in a sorted array in log(n) time.
 	*/
 
 
@@ -398,3 +399,40 @@
 
 		return (stack.isEmpty());
 	}
+	/* Question 15:
+	 Every element of the given sorted array is repeated but one, find that one in log(n) time.
+	 */
+	public static int findOddOneInSortedArray(int[] ar) {
+		int l = ar.length;
+
+		if (l == 1)
+			return ar[0];
+		if (l % 2 == 0 || l < 1)
+			return -1;
+
+		return findOddOneInSortedArray(ar, 0, l - 1);
+	}
+
+	public static int findOddOneInSortedArray(int[] ar, int beg, int end) {
+
+		if (beg > end)
+			return -1;
+		int mid = (end + beg) / 2;
+
+		if (beg == end)
+			return ar[mid];
+		if (mid % 2 == 0) {
+			if (ar[mid] == ar[mid + 1])
+				return findOddOneInSortedArray(ar, mid + 2, end);
+			else
+				return findOddOneInSortedArray(ar, beg, mid);
+		} else {
+			if (ar[mid] == ar[mid - 1])
+				return findOddOneInSortedArray(ar, mid - 2, end);
+			else
+				return findOddOneInSortedArray(ar, beg, mid - 1);
+		}
+
+	}
+
+

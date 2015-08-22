@@ -12,7 +12,8 @@
         Question 10: For given number n, find the smallest number whose digits consists of only 0 and 7 and divisible by n.
         Question 11: Random shuffle of arrays.
         Question 12: Number of path ina Maze(from top left to right bottom, moves are only to the right and to the down)
-	Question 13: Check that whether pharanthesis are properly opened and closed.
+	Question 13: Maximum of a sliding windows of size k over the array of length n>k.
+	Question 14: Check that whether pharanthesis are properly opened and closed.
 	*/
 
 
@@ -365,7 +366,7 @@
 
 	}
 	
-	/*Question 14:
+	/* Question 14:
 	Check whether pharanthesis are properly opened and closed. Input is a string consisting of only the characters
 	'(',')','{','}','[' anf ']'.
 	*/

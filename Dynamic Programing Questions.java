@@ -7,6 +7,7 @@
        Question 7: Length of longest increasing subsequence.
        Question 8: Check that whether you can fund a subset of the given nonnegative array such that,
        total sum of that subset is equal to the	given number.
+       Question 9: Edit distance (allowed operations are delete, insert, and replace).
        
     */
     
@@ -216,5 +217,36 @@
 		return B[arLen - 1][n];
 	}
 
+       /* Question 9: 
+       Return the edit distance of the given two strings.
+       */
+       	public static int editDistance(String word1, String word2) {
+       		int r = word1.length() + 1;
+		int c = word2.length() + 1;
+		int[][] M = new int[r][c];
+	        //initialization
+		for (int i = 0; i < r; ++i) {
+			for (int j = 0; j < c; ++j) {
+				M[0][j] = j;
+				M[i][0] = i;
+			}
+		}
+		for (int i = 1; i < r; ++i) {
+			for (int j = 1; j < c; ++j) {
+				if (word1.charAt(i - 1) == word2.charAt(j - 1))
+					M[i][j] = M[i - 1][j - 1];
+				else {
+					int deleteOperation = M[i - 1][j] + 1; // or
+					int insertOperation = M[i][j - 1] + 1;// or
+					int replaceOperation = M[i - 1][j - 1] + 1;
+					M[i][j] = Math.min(deleteOperation,
+							Math.min(replaceOperation, insertOperation));
+				}
+
+			}
+
+		}
+		return M[r - 1][c - 1];
+	}
 
 

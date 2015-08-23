@@ -15,6 +15,7 @@
 	Question 13: Maximum of a sliding windows of size k over the array of length n>k.
 	Question 14: Check that whether pharanthesis are properly opened and closed.
 	Question 15: Find the nonrepeated element in a sorted array in log(n) time.
+	Question 16: Trapping rain water between buildings
 	*/
 
 
@@ -433,6 +434,42 @@
 				return findOddOneInSortedArray(ar, beg, mid - 1);
 		}
 
+	}
+	
+	/* Question 16:
+	 * Trapping rain water. Given n non-negative integers representing an
+	 * elevation map where the width of each bar is 1, compute how much water it
+	 * is able to trap after raining.
+	 */
+
+	public static int trappingWater(int[] ar) {
+
+		int len = ar.length;
+		int[] leftMax = new int[len];
+		int[] rightMax = new int[len];
+		int water = 0;
+
+		// max from the left side,
+		int max = 0;
+		for (int i = 0; i < len; ++i) {
+			if (max < ar[i])
+				max = ar[i];
+			leftMax[i] = max;
+
+		}
+        // max from right side
+		max = 0;
+		for (int i = len - 1; i >= 0; --i) {
+			if (max < ar[i])
+				max = ar[i];
+			rightMax[i] = max;
+
+		}
+
+		for (int i = 0; i < len; ++i) {
+			water += Math.min(leftMax[i], rightMax[i]) - ar[i];
+		}
+		return water;
 	}
 
 

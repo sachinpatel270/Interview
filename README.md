@@ -10,5 +10,10 @@ Problems are chosen from:
 -algorithms.tutorialhorizon.com
 
 -Cracking the Coding Interview (book)
+
+-www.geeksforgeeks.org
+
+-leetcode.com
+
  etc.
 

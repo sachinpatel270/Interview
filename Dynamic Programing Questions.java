@@ -8,6 +8,7 @@
        Question 8: Check that whether you can fund a subset of the given nonnegative array such that,
        total sum of that subset is equal to the	given number.
        Question 9: Edit distance (allowed operations are delete, insert, and replace).
+       Question 10: Number of the architecture of the road with given constraints.
        
     */
     
@@ -249,4 +250,30 @@
 		return M[r - 1][c - 1];
 	}
 
+	/*  Question 10:
+	Given an input number of sections and each section has 2 plots on either sides of the road.
+	Find all possible ways to construct buildings in the plots such that there is a space between any 2 buildings.
+	N = 1,Output = 4.Place a building on one side.Place a building on other side or no any building,or on both sides.
+
+	N = 3 Output = 25. 3 sections, which means possible ways for one side are BSS, BSB, SSS, SBS, SSB where B represents a building 
+    	and S represents an empty space. Total possible ways are 25, because a way to place on one side can correspond to any of 5 ways on other side.
+   
+    	Solution: wanted number = square of the number f(n+1,S)= f(n,B)+f(n,S) = f(n,S) + f(n-1,S)  where  f(1,S)=1, f(0,S) = 1.
+    	*/
+	public static int numberOfBuilding(int n) {
+
+		int fRun = 0;
+		int fStart = 1;
+		int fReady = 1;
+		int count = 0;
+
+		while (count < n) {
+			fRun = fStart + fReady;
+			fReady = fStart;
+			fStart = fRun;
+			++count;
+		}
+
+		return (int) Math.pow(fRun, 2);
+	}
 

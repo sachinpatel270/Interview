@@ -9,7 +9,7 @@
        total sum of that subset is equal to the	given number.
        Question 9: Edit distance (allowed operations are delete, insert, and replace).
        Question 10: Number of the architecture of the road with given constraints.
-       
+       Question 11: Maximize sharing by buying and selling. You are allowed to make only two or four transaction.
     */
     
     
@@ -275,5 +275,59 @@
 		}
 
 		return (int) Math.pow(fRun, 2);
+	}
+ 	/* Question 11:
+ 	In a daily share trading, a buyer buys shares in the morning and sells it on same day. 
+	you can make buying-selling or buying-selling-buying-selling 
+	Given stock prices throughout day, find out maximum profit that a share trader could have made.
+	*/
+       public static int maximizeSharingDP(int[] ar) {
+		int len = ar.length;
+		int[] leftProfit = new int[len];
+		int[] rightProfit = new int[len];
+		int max = ar[len-1];
+		int min = ar[0];
+		int maxprofit = 0;
+		int curprofit = 0;
+		for(int i = 1; i < len ; ++i ) {
+			leftProfit[i] = Math.max(leftProfit[i-1], ar[i]-min);
+			min = (min > ar[i]) ? ar[i]: min;
+		}
+		for(int i = len - 2; i >= 0; --i ) {
+			rightProfit[i] = Math.max(rightProfit[i+1], max - ar[i]);
+			max = (max < ar[i]) ? ar[i]: max;
+		}
+		
+		for(int i = 1; i < len-1; ++i)	{	
+			curprofit = leftProfit[i]+rightProfit[i+1];
+			maxprofit = (curprofit > maxprofit) ? curprofit  :maxprofit;
+		}
+			
+			
+		arrayPrinter(leftProfit);
+		arrayPrinter(rightProfit);
+		
+		return maxprofit;
+	}
+	
+	public static int maximizeSharingBruteForce(int[] ar) {
+
+		int absmax = 0;
+		for (int i = 1; i < ar.length - 1; ++i) {
+			int max = localmax(ar, 0, i) + localmax(ar, i + 1, ar.length - 1);
+			absmax = (absmax < max) ? max : absmax;
+		}
+		return absmax;
+
+	}
+
+	public static int localmax(int[] ar, int left, int right) {
+		int max = 0;
+		for (int i = left; i <= right; ++i) {
+			for (int j = left; j < i; ++j) {
+				max = (max < ar[i] - ar[j]) ? ar[i] - ar[j] : max;
+			}
+		}
+		return max;
 	}
 

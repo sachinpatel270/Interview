@@ -16,6 +16,7 @@
 	Question 14: Check that whether pharanthesis are properly opened and closed.
 	Question 15: Find the nonrepeated element in a sorted array in log(n) time.
 	Question 16: Trapping rain water between buildings
+	Question 17: Alternating number: Given positif and negative numbers in array, rearrange the array with alternating sign.
 	*/
 
 
@@ -471,5 +472,42 @@
 		}
 		return water;
 	}
+        /* Question 17: 
+        Alternating number: Given positif and negative numbers in array, rearrange the array with alternating sign.
+	*/
+	
+	public static int[] alternateArray(int[] ar) {
+
+		Queue<Integer> pos = new LinkedList<Integer>();
+		Queue<Integer> neg = new LinkedList<Integer>();
+		for (int i = 1; i < ar.length; ++i) {
+
+			if (ar[i] < 0)
+				neg.add(ar[i]);
+			else
+				pos.add(ar[i]);
+
+		}
+
+		int i = 1;
+		while (i < ar.length) {
+			if (ar[0] < 0) {
+				if (!pos.isEmpty())
+					ar[i++] = pos.poll();
+				if (!neg.isEmpty())
+					ar[i++] = neg.poll();
+			} else {
+				if (!neg.isEmpty())
+					ar[i++] = neg.poll();
+
+				if (!pos.isEmpty())
+					ar[i++] = pos.poll();
+			}
+
+		}
+
+		return ar;
+	}
+
 
 

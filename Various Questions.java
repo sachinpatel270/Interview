@@ -202,6 +202,7 @@
 					return true;
 				}
 			} else {
+				match = 0;
 				start = 0;// restart
 				++runner;
 			}

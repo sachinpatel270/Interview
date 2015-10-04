@@ -202,6 +202,7 @@
 					return true;
 				}
 			} else {
+				runner = runner - match +1;//back to comparison position +1
 				match = 0;
 				start = 0;// restart
 				++runner;
